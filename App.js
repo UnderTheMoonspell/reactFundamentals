@@ -30,8 +30,8 @@ class App extends React.Component{
         debugger;
         return {
                 backgroundColor: 'rgb('+this.state.red+','+this.state.green+','+this.state.blue+')',
-                width: "15px", 
-                height: "15px"
+                width: "25px", 
+                height: "25px"
             }
     }        
     render() {

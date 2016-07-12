@@ -31,7 +31,7 @@ class App extends React.Component{
         return {
                 backgroundColor: 'rgb('+this.state.red+','+this.state.green+','+this.state.blue+')',
                 width: "25px", 
-                height: "25px"
+                height: "2px"
             }
     }        
     render() {

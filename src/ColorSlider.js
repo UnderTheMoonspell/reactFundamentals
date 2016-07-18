@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
+import './styles/colorslider.scss'
 // class App extends React.Component{
 //     render(){
 //         return (<div>Hello <i>ma friend!</i></div>)
@@ -8,7 +9,7 @@ import ReactDOM from 'react-dom'
 
 // const App = () => <h1>Isto nao tem state ao contrario da classe anterior</h1>
 
-class App extends React.Component{
+class ColorSlider extends React.Component{
     constructor() {
         super();
         this.state = {
@@ -27,7 +28,6 @@ class App extends React.Component{
             })
     }
     getResultColorStyle(){
-        debugger;
         return {
                 backgroundColor: 'rgb('+this.state.red+','+this.state.green+','+this.state.blue+')',
                 width: "20px", 
@@ -95,7 +95,7 @@ class Slider extends React.Component{
 // );
 
 ReactDOM.render(
-    <App/>, document.getElementById('app')
+    <ColorSlider/>, document.getElementById('app2')
 );
 
-export default App
+export default ColorSlider

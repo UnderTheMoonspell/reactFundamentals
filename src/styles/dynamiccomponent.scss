@@ -1,0 +1,14 @@
+@import "colors.scss";
+
+#app{
+    background-color: $backgroundColor;
+    display:flex;
+}
+
+table{
+    border:1px solid black;
+
+    & tr:hover{
+        background-color: red;
+    }
+}

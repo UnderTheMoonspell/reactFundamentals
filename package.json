@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server -p",
     "start-dev": "webpack-dev-server",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "build-dev": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -23,9 +24,14 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
+    "clean-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
   }
 }

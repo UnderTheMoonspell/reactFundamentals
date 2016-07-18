@@ -5,16 +5,13 @@ var webpack = require('webpack'),
     CleanPlugin = require('clean-webpack-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
-    // var cssName = production ? "[name]-[hash].css": '[name].css',
-    // jsName = 
-
 options = {
     entry: './src/main.js',
     output: {
-        path: path.join(__dirname, 'dist/'),
-        filename: '[name].js',
+        path: production ? path.join(__dirname, './dist/assets/') : path.join(__dirname, './dev/assets/') ,
+        filename: production ? '[name].[hash].js' : '[name].js',
         chunkFilename: '[name].[chunkhash].js',
-        publicPath: 'dist/'
+        publicPath: production ? 'dist/assets/' : 'dev/assets/'
     },
     devServer: {
         inline: true,
@@ -51,26 +48,25 @@ options = {
             children: true, // Look for common dependencies in all children,
             minChunks: 2, // How many times a dependency must come up before being extracted
         }),
-        new CleanPlugin('dist'),
-        new ExtractTextPlugin("[name].css?", { allChunks: true }),
-        // new HtmlWebpackPlugin({
-        //     hash : true,
-        //     template: 'index.html',
-        //     filename: '../index.html'
-        // }),        
+        new CleanPlugin(production ? 'dist' : 'dev'),
+        new ExtractTextPlugin(production ? '[name].[hash].css' : '[name].css', { allChunks: true }),   
+        new HtmlWebpackPlugin({
+            hash : production ? true : false,
+            template: 'index_template.html',
+            filename: production ? path.join(__dirname, 'index.html') : path.join(__dirname, 'index.html'),
+        }),                 
     ]
 }
 
 if (production) {
-    options.plugins = options.plugins.concat([    
+    options.plugins = options.plugins.concat([
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-                drop_console: true,
+                // drop_console: true,
                 screw_ie8: true,
                 warnings: false
             }
-        }),
-              
+        }),          
     ]);
 }
 

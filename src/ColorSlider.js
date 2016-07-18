@@ -93,9 +93,4 @@ class Slider extends React.Component{
 // ReactDOM.render(
 //     <App cat={4} txt="teste das props com let" />, document.getElementById('app')
 // );
-
-ReactDOM.render(
-    <ColorSlider/>, document.getElementById('app2')
-);
-
 export default ColorSlider

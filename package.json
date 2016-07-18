@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server -p",
-    "start-dev": "webpack-dev-server",
-    "build": "webpack -p",
+    "start": "NODE_ENV=production webpack -p && webpack-dev-server --hot",
+    "start-dev": "webpack && webpack-dev-server --hot",
+    "build": "NODE_ENV=production webpack",
     "build-dev": "webpack"
   },
   "author": "",
